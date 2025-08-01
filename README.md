@@ -61,25 +61,25 @@ cd your-repo-name
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
 
-# Navigate to the source directory
+## Navigate to the source directory
 cd src
 
-# Run the training script (this will create the model in src/model/)
+## Run the training script (this will create the model in src/model/)
 python train.py
 
-# Go back to the root directory
+## Go back to the root directory
 cd ..
 
 Run the Application: Use Docker Compose to build and run the containers.
-
+```
 docker compose up --build 
-
+```
 Access the Services:
-
+```
 Streamlit Dashboard: Open your browser to http://localhost:8501
 
 API Docs: Access the interactive API documentation at http://localhost:8000/docs
-
+```
 API Usage
 You can send a POST request to the /predict endpoint to get a price prediction.
 
