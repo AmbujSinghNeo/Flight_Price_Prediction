@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # The FastAPI backend service
+  api:
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    container_name: flight_price_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the model directory to allow updating the model without rebuilding
+      - ./src/model:/app/src/model
+    networks:
+      - flight_network
+
+  # The Streamlit frontend service
+  streamlit:
+    build:
+      context: .
+      dockerfile: streamlit.Dockerfile
+    container_name: flight_price_ui
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      # This is crucial! It tells Streamlit where to find the API.
+      # 'api' is the name of our other service in this file.
+      - API_URL=http://api:8000/predict
+    depends_on:
+      - api # Wait for the API to be ready before starting
+    networks:
+      - flight_network
+
+networks:
+  flight_network:
+    driver: bridge

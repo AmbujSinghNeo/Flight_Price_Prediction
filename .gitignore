@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv
+env/
+
+# Model & Data Artifacts
+*.pkl
+mlruns/
+mlflow.db
+
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+.pytest_cache/
+
+# Environment variables
+.env
+
