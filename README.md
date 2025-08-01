@@ -24,7 +24,7 @@ This project follows a microservice-based architecture. The diagram below illust
 
 ```mermaid
 graph TD
-    subgraph User's Browser
+    subgraph     User's Browser
         A[User Enters Flight Details] --> B{Streamlit UI};
         B --> C[Clicks 'Predict Price'];
     end
@@ -72,7 +72,7 @@ cd ..
 
 Run the Application: Use Docker Compose to build and run the containers.
 
-docker-compose up --build -d
+docker compose up --build 
 
 Access the Services:
 
@@ -87,6 +87,7 @@ Endpoint: http://localhost:8000/predict
 
 Request Body:
 
+```
 {
   "airline": "Vistara",
   "source_city": "Delhi",
@@ -98,7 +99,7 @@ Request Body:
   "duration": 15.83,
   "days_left": 26
 }
-
+```
 Success Response:
 
 {
