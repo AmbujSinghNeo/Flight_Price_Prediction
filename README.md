@@ -1,30 +1,38 @@
-# Flight Price Predictor API & Dashboard
+Flight Price Predictor API & Dashboard
+An end-to-end MLOps project to predict flight prices, featuring a FastAPI backend, Streamlit UI, and Docker containerization.
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Python Version](https://img.shields.io/badge/python-3.8-blue) ![Docker](https://img.shields.io/badge/docker-ready-blue)
+Table of Content
+Demo
 
-A complete MLOps project to predict flight prices. This repository contains a machine learning model served via a **FastAPI** backend, an interactive **Streamlit** dashboard, and is fully containerized with **Docker**.
+Overview
 
-## Features
+Project Architecture
 
-- **REST API:** A robust API built with FastAPI to serve real-time price predictions.
-- **Interactive Dashboard:** A user-friendly frontend built with Streamlit to interact with the model.
-- **MLOps Ready:** Integrated with **MLflow** for experiment tracking and model versioning.
-- **Containerized:** Fully containerized with **Docker** and orchestrated with **Docker Compose** for easy setup and deployment.
-- **CI/CD Ready:** Configured for automated builds and deployments using GitHub Actions.
+Tech Stack
 
-## Tech Stack
+Installation
 
-- **Backend:** Python, FastAPI, Scikit-learn, XGBoost
-- **Frontend:** Streamlit
-- **MLOps & Deployment:** Docker, Docker Compose, MLflow, GitHub Actions
+Directory Tree
 
-## Project Architecture
+Bug / Feature Request
 
+Future Scope
+
+Demo
+Here is a demo of the interactive Streamlit dashboard.
+
+(Replace the path below with the actual path to your screenshot)
+
+(You can add more screenshots here if you like)
+
+Overview
+This is a complete MLOps project to predict flight prices. It features a machine learning model served via a robust FastAPI backend and an interactive Streamlit dashboard for user interaction. The entire application is containerized with Docker for easy setup and deployment.
+
+Project Architecture
 This project follows a microservice-based architecture. The diagram below illustrates the complete workflow from user interaction to price prediction.
 
-```mermaid
 graph TD
-    subgraph     User's Browser
+    subgraph User's Browser
         A[User Enters Flight Details] --> B{Streamlit UI};
         B --> C[Clicks 'Predict Price'];
     end
@@ -44,8 +52,15 @@ graph TD
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style H fill:#f9f,stroke:#333,stroke-width:2px
-```
-Getting Started
+
+Tech Stack
+Backend: Python, FastAPI, Scikit-learn, XGBoost
+
+Frontend: Streamlit
+
+MLOps & Deployment: Docker, Docker Compose, MLflow
+
+Installation
 Follow these steps to get the project running locally.
 
 Prerequisites
@@ -53,11 +68,11 @@ Docker
 
 Docker Compose
 
-Installation & Setup
+Setup
 Clone the repository:
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-cd your-repo-name
+git clone [https://github.com/AmbujSinghNeo/Flight_Price_Prediction.git](https://github.com/AmbujSinghNeo/Flight_Price_Prediction.git)
+cd Flight_Price_Prediction
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
 
@@ -71,37 +86,46 @@ python train.py
 cd ..
 
 Run the Application: Use Docker Compose to build and run the containers.
-```
-docker compose up --build 
-```
+
+docker-compose up --build 
+
 Access the Services:
-```
+
 Streamlit Dashboard: Open your browser to http://localhost:8501
 
 API Docs: Access the interactive API documentation at http://localhost:8000/docs
-```
-API Usage
-You can send a POST request to the /predict endpoint to get a price prediction.
 
-Endpoint: http://localhost:8000/predict
+Directory Tree
+├── src
+│   ├── model
+│   ├── __init__.py
+│   ├── config.py
+│   ├── main.py
+│   ├── preprocessing.py
+│   ├── schema.py
+│   ├── streamlit_app.py
+│   ├── train.py
+│   └── utils.py
+├── tests
+│   └── test_app.py
+├── .gitignore
+├── api.Dockerfile
+├── Clean_Dataset.csv
+├── docker-compose.yml
+├── EDA_Flight_price.ipynb
+├── mlflow.db
+├── README.md
+├── requirements.txt
+└── streamlit.Dockerfile
 
-Request Body:
+Bug / Feature Request
+If you find a bug or have a feature request, please open an issue on GitHub.
 
-```
-{
-  "airline": "Vistara",
-  "source_city": "Delhi",
-  "departure_time": "Morning",
-  "stops": "one",
-  "arrival_time": "Night",
-  "destination_city": "Mumbai",
-  "class": "Business",
-  "duration": 15.83,
-  "days_left": 26
-}
-```
-Success Response:
+Future Scope
+Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
 
-{
-  "predicted_price": 85000.50
-}
+Add a batch prediction endpoint for CSV file uploads.
+
+Secure the API with token-based authentication.
+
+Monitor for data drift and set up automated model retraining triggers.
