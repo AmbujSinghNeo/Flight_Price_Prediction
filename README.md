@@ -151,10 +151,12 @@ Directory Tree
 ├── requirements.txt
 └── streamlit.Dockerfile
 ```
-Bug / Feature Request
+##Bug / Feature Request
+
 If you find a bug or have a feature request, please open an issue on GitHub.
 
-Future Scope
+##Future Scope
+
 Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
 
 Add a batch prediction endpoint for CSV file uploads.
