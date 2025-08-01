@@ -56,7 +56,7 @@ Docker Compose
 Installation & Setup
 Clone the repository:
 
-git clone https://github.com/your-username/your-repo-name.git
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
 cd your-repo-name
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
