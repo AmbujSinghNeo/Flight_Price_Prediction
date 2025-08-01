@@ -13,6 +13,9 @@ services:
     volumes:
       # Mount the model directory to allow updating the model without rebuilding
       - ./src/model:/app/src/model
+      - ./mlflow.db:/app/mlflow.db 
+      - ./src/mlruns:/home/neosoft/Documents/GitHub/Fligt_Price_Predictor/src/mlruns # <-- ADD THIS LINE
+
     networks:
       - flight_network
 

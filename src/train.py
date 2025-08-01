@@ -107,7 +107,12 @@ def train_model(model_name, params):
         mlflow.log_metric("mape", mape)
         mlflow.log_metric("max_error", max_err)
         
-        mlflow.sklearn.log_model(model_pipeline, "model_pipeline")
+        #mlflow.sklearn.log_model(model_pipeline, "model_pipeline")
+        mlflow.sklearn.log_model(
+            sk_model=model_pipeline,
+            artifact_path="model_pipeline",
+            registered_model_name="flight-price-predictor" # This is the magic part
+        )
         
         print(f"MLflow run completed. Run ID: {run.info.run_id}")
 
