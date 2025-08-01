@@ -1,6 +1,6 @@
 # Flight Price Predictor API & Dashboard
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Python Version](https://img.shields.io/badge/python-3.8-blue) ![Docker](https://img.shields.io/badge/docker-ready-blue)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Python Version](https://img.shields.io/badge/python-3.9-blue) ![Docker](https://img.shields.io/badge/docker-ready-blue)
 
 A complete MLOps project to predict flight prices. This repository contains a machine learning model served via a **FastAPI** backend, an interactive **Streamlit** dashboard, and is fully containerized with **Docker**.
 
@@ -56,7 +56,7 @@ Docker Compose
 Installation & Setup
 Clone the repository:
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
