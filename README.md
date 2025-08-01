@@ -31,7 +31,7 @@ graph TD
 
     subgraph "Docker Network"
         C -->|1. HTTP POST Request| D[FastAPI Backend];
-        D -->|2. Load Model (.pkl)| E[ML Model];
+        D -->|2. Load Model| E[ML Model];
         D -->|3. Preprocess Input| F[Preprocessing Pipeline];
         F --> G[Make Prediction];
         G -->|4. Return Prediction| D;
@@ -104,5 +104,3 @@ Success Response:
 {
   "predicted_price": 85000.50
 }
-
-
