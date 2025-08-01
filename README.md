@@ -1,39 +1,36 @@
-Flight Price Predictor API & Dashboard
+# Flight Price Predictor API & Dashboard
+
+![Python](https://img.shields.io/badge/python-3.8-blue.svg) ![FastAPI](https://img.shields.io/badge/FastAPI-0.92.0-blueviolet) ![Docker](https://img.shields.io/badge/docker-ready-blue) ![MLflow](https://img.shields.io/badge/mlflow-tracking-green)
+
 An end-to-end MLOps project to predict flight prices, featuring a FastAPI backend, Streamlit UI, and Docker containerization.
 
-Table of Content
-Demo
+## Table of Content
+* [Demo](#demo)
+* [Overview](#overview)
+* [Project Architecture](#project-architecture)
+* [Tech Stack](#tech-stack)
+* [Installation](#installation)
+* [Directory Tree](#directory-tree)
+* [Bug / Feature Request](#bug--feature-request)
+* [Future Scope](#future-scope)
 
-Overview
+## Demo
 
-Project Architecture
-
-Tech Stack
-
-Installation
-
-Directory Tree
-
-Bug / Feature Request
-
-Future Scope
-
-Demo
 Here is a demo of the interactive Streamlit dashboard.
 
-(Replace the path below with the actual path to your screenshot)
+*(Replace the path below with the actual path to your screenshot, e.g., `docs/screenshot1.png`)*
+![Streamlit App Demo](path/to/your/screenshot1.png)
 
-(You can add more screenshots here if you like)
+## Overview
+This is a complete MLOps project to predict flight prices. It features a machine learning model served via a robust **FastAPI** backend and an interactive **Streamlit** dashboard for user interaction. The entire application is containerized with **Docker** for easy setup and deployment.
 
-Overview
-This is a complete MLOps project to predict flight prices. It features a machine learning model served via a robust FastAPI backend and an interactive Streamlit dashboard for user interaction. The entire application is containerized with Docker for easy setup and deployment.
+## Project Architecture
 
-Project Architecture
 This project follows a microservice-based architecture. The diagram below illustrates the complete workflow from user interaction to price prediction.
 
 ```mermaid
 graph TD
-    subgraph     User's Browser
+    subgraph "User's Browser"
         A[User Enters Flight Details] --> B{Streamlit UI};
         B --> C[Clicks 'Predict Price'];
     end
@@ -47,7 +44,7 @@ graph TD
         D -->|HTTP JSON Response| C;
     end
 
-    subgraph User's Browser
+    subgraph "User's Browser"
         C --> H{Display Predicted Price};
     end
 
@@ -127,7 +124,7 @@ Success Response:
   "predicted_price": 85000.50
 }
 
-Directory Tree
+## Directory Tree
 ```
 ├── src
 │   ├── model
@@ -151,16 +148,16 @@ Directory Tree
 ├── requirements.txt
 └── streamlit.Dockerfile
 ```
-##Bug / Feature Request
+## Bug / Feature Request
 
 If you find a bug or have a feature request, please open an issue on GitHub.
 
-##Future Scope
+## Future Scope
 
-Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
+* Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
 
-Add a batch prediction endpoint for CSV file uploads.
+* Add a batch prediction endpoint for CSV file uploads.
 
-Secure the API with token-based authentication.
+* Secure the API with token-based authentication.
 
-Monitor for data drift and set up automated model retraining triggers.
+* Monitor for data drift and set up automated model retraining triggers.
