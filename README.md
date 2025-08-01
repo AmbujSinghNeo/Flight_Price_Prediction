@@ -30,12 +30,12 @@ graph TD
     end
 
     subgraph "Docker Network"
-        C -->|1. HTTP POST Request| D[FastAPI Backend];
-        D -->|2. Load Model| E[ML Model];
-        D -->|3. Preprocess Input| F[Preprocessing Pipeline];
+        C -->|HTTP POST Request| D[FastAPI Backend];
+        D -->|Load Model| E[ML Model];
+        D -->|Preprocess Input| F[Preprocessing Pipeline];
         F --> G[Make Prediction];
-        G -->|4. Return Prediction| D;
-        D -->|5. HTTP JSON Response| C;
+        G -->|Return Prediction| D;
+        D -->|HTTP JSON Response| C;
     end
 
     subgraph User's Browser
@@ -56,7 +56,7 @@ Docker Compose
 Installation & Setup
 Clone the repository:
 
-git clone https://github.com/your-username/your-repo-name.git
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
 cd your-repo-name
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
