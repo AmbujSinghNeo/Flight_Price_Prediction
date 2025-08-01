@@ -31,7 +31,7 @@ This is a complete MLOps project to predict flight prices. It features a machine
 Project Architecture
 This project follows a microservice-based architecture. The diagram below illustrates the complete workflow from user interaction to price prediction.
 
-graph TD
+```graph TD
     subgraph User's Browser
         A[User Enters Flight Details] --> B{Streamlit UI};
         B --> C[Clicks 'Predict Price'];
@@ -52,7 +52,7 @@ graph TD
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style H fill:#f9f,stroke:#333,stroke-width:2px
-
+```
 Tech Stack
 Backend: Python, FastAPI, Scikit-learn, XGBoost
 
@@ -76,7 +76,7 @@ cd Flight_Price_Prediction
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
 
-## Navigate to the source directory
+```## Navigate to the source directory
 cd src
 
 ## Run the training script (this will create the model in src/model/)
@@ -84,7 +84,7 @@ python train.py
 
 ## Go back to the root directory
 cd ..
-
+```
 Run the Application: Use Docker Compose to build and run the containers.
 
 docker-compose up --build 
@@ -96,7 +96,7 @@ Streamlit Dashboard: Open your browser to http://localhost:8501
 API Docs: Access the interactive API documentation at http://localhost:8000/docs
 
 Directory Tree
-├── src
+```├── src
 │   ├── model
 │   ├── __init__.py
 │   ├── config.py
@@ -117,7 +117,7 @@ Directory Tree
 ├── README.md
 ├── requirements.txt
 └── streamlit.Dockerfile
-
+```
 Bug / Feature Request
 If you find a bug or have a feature request, please open an issue on GitHub.
 
