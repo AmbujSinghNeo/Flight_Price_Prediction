@@ -1,0 +1,28 @@
+services:
+  # The FastAPI backend service
+  - type: web
+    name: flight-price-api
+    env: docker
+    image:
+      url: ambujsingh11/flight-price-api:latest
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # The Streamlit frontend service
+  - type: web
+    name: flight-price-ui
+    env: docker
+    image:
+      url: ambujsingh11/flight-price-ui:latest
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: API_URL
+        # This special value gets the internal URL of your API service on Render
+        fromService:
+          type: web
+          name: flight-price-api
+          envVarKey: RENDER_INTERNAL_HOSTNAME
+
