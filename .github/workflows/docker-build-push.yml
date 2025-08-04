@@ -1,0 +1,35 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push API image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./api.Dockerfile
+          push: true
+          tags: ambujsingh11/flight-price-api:latest
+
+      - name: Build and push Streamlit UI image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./streamlit.Dockerfile
+          push: true
+          tags: ambujsingh11/flight-price-ui:latest
+
