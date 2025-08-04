@@ -1,6 +1,6 @@
 # Flight Price Predictor API & Dashboard
 
-![Python](https://img.shields.io/badge/python-3.8-blue.svg) ![FastAPI](https://img.shields.io/badge/FastAPI-0.92.0-blueviolet) ![Docker](https://img.shields.io/badge/docker-ready-blue) ![MLflow](https://img.shields.io/badge/mlflow-tracking-green)
+![Python](https://img.shields.io/badge/python-3.9-blue.svg) ![FastAPI](https://img.shields.io/badge/FastAPI-0.92.0-blueviolet) ![Docker](https://img.shields.io/badge/docker-ready-blue) ![MLflow](https://img.shields.io/badge/mlflow-tracking-green)
 
 An end-to-end MLOps project to predict flight prices, featuring a FastAPI backend, Streamlit UI, and Docker containerization.
 
@@ -51,7 +51,6 @@ graph TD
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style H fill:#f9f,stroke:#333,stroke-width:2px
 ```
-
 Tech Stack
 Backend: Python, FastAPI, Scikit-learn, XGBoost
 
@@ -75,20 +74,19 @@ cd Flight_Price_Prediction
 
 Train the Model: Before running the application, you must train a model. The trained model artifact (.pkl) is required by the API.
 
-```
-## Navigate to the source directory
+# Navigate to the source directory
 cd src
 
-## Run the training script (this will create the model in src/model/)
+# Run the training script (this will create the model in src/model/)
 python train.py
 
-## Go back to the root directory
+# Go back to the root directory
 cd ..
 
-```
+
 Run the Application: Use Docker Compose to build and run the containers.
 
-docker-compose up --build 
+docker-compose up --build -d
 
 Access the Services:
 
@@ -97,34 +95,7 @@ Streamlit Dashboard: Open your browser to http://localhost:8501
 API Docs: Access the interactive API documentation at http://localhost:8000/docs
 
 
-API Usage
-You can send a POST request to the /predict endpoint to get a price prediction.
 
-Endpoint: http://localhost:8000/predict
-
-Request Body:
-
-```
-{
-  "airline": "Vistara",
-  "source_city": "Delhi",
-  "departure_time": "Morning",
-  "stops": "one",
-  "arrival_time": "Night",
-  "destination_city": "Mumbai",
-  "class": "Business",
-  "duration": 15.83,
-  "days_left": 26
-}
-```
-
-Success Response:
-
-{
-  "predicted_price": 85000.50
-}
-
-## Directory Tree
 ```
 ├── src
 │   ├── model
@@ -148,16 +119,16 @@ Success Response:
 ├── requirements.txt
 └── streamlit.Dockerfile
 ```
-## Bug / Feature Request
 
+
+Bug / Feature Request
 If you find a bug or have a feature request, please open an issue on GitHub.
 
-## Future Scope
+Future Scope
+Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
 
-* Implement a CI/CD pipeline using GitHub Actions for automated testing and deployment.
+Add a batch prediction endpoint for CSV file uploads.
 
-* Add a batch prediction endpoint for CSV file uploads.
+Secure the API with token-based authentication.
 
-* Secure the API with token-based authentication.
-
-* Monitor for data drift and set up automated model retraining triggers.
+Monitor for data drift and set up automated model retraining triggers.
