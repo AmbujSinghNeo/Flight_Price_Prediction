@@ -1,14 +1,17 @@
+
 {
   "$schema": "https://railway.app/railway.schema.json",
   "deploy": {
     "services": [
       {
         "name": "flight-price-api",
-        "dockerfilePath": "./api.Dockerfile"
+        "dockerfilePath": "./api.Dockerfile",
+        "startCommand": "uvicorn main:app --host 0.0.0.0 --port $PORT"
       },
       {
         "name": "flight-price-ui",
-        "dockerfilePath": "./streamlit.Dockerfile"
+        "dockerfilePath": "./streamlit.Dockerfile",
+        "startCommand": "streamlit run streamlit_app.py --server.port $PORT --server.address=0.0.0.0"
       }
     ]
   }
