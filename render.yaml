@@ -20,4 +20,4 @@ services:
       - key: PORT
         value: 8501
       - key: API_URL
-        value: http://flight-price-api:8000/predict
+        value: https://flight-price-api.onrender.com/predict
