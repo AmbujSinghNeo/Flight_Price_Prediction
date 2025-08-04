@@ -20,9 +20,4 @@ services:
       - key: PORT
         value: 8501
       - key: API_URL
-        # This special value gets the internal URL of your API service on Render
-        fromService:
-          type: web
-          name: flight-price-api
-          envVarKey: RENDER_INTERNAL_HOSTNAME
-
+        value: http://flight-price-api:8000/predict
